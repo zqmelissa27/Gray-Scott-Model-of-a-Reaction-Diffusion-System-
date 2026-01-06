@@ -3,18 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import imageio
 
-
-# Función para simular el modelo de Gray-Scott
 def gray_scott_model(Du, Dv, f, k, Lx, Ly, mx, my, NT, dt, St, output_dir, cmap):
     N = mx  #mx = my
-
-    # Inicializar matrices U y V
     V = np.ones((N, N))
     U = np.zeros((N, N))
     dU = np.zeros((N, N))
     dV = np.zeros((N, N))
 
-    # Generar el estado inicial de U y V
     def initial_state(U, V):
         U.fill(1.0)
         V.fill(0.0)
@@ -86,11 +81,9 @@ NT = 5050  # Número de iteraciones
 dt = 1.0  # Paso de tiempo
 St = 50  # Guardar cada St s
 
-# Directorio para guardar las simulaciones
 output_base_dir = 'gray_scott_simulations'
-
-# Ejecutar las 9 simulaciones
 for i, params in enumerate(simulaciones):
     output_dir = f'{output_base_dir}/simulation_{i+1}'
     print(f"Ejecutando simulación {i+1} con parámetros: Du={params['Du']}, Dv={params['Dv']}, f={params['f']}, k={params['k']}, cmap={params['cmap']}")
+
     gray_scott_model(params['Du'], params['Dv'], params['f'], params['k'], Lx, Ly, mx, my, NT, dt, St, output_dir, params['cmap'])
