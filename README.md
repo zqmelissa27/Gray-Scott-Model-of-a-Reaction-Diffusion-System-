@@ -15,7 +15,6 @@ Second-order central differences are used for the spatial discretization of the 
 and time integration is performed using an explicit time-stepping scheme.
 ## Initial and Boundary Conditions
 The concentrations are initialized with a small perturbation around a homogeneous steady state.
-Boundary conditions are taken to be periodic (or specify Neumann / Dirichlet if different),
-allowing the emergence of self-organized spatial patterns.
+Boundary conditions are taken to be periodic 
 
 
